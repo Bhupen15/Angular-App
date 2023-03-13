@@ -57,6 +57,7 @@ export class ApplyComponent {
     data.value.lname=this.user.lname;
     data.value.email=this.user.email;
     data.value.mobile=this.user.mobile;
+    data.value.sno=this.getId();
     console.log(data.value);
     this.authService.applyloan(data.value).subscribe((res: any)=>{
       console.log(res);

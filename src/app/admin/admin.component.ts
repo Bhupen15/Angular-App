@@ -105,7 +105,7 @@ export class AdminComponent {
   editStatus = (stat: number) => {
     let data = {
       "status": stat,
-      "id": this.userData.id
+      "sno": this.userData.sno
     };
     this.authService.editStatus(data).subscribe(async (res: any) => {
       const status = res.success;

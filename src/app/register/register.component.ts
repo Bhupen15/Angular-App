@@ -36,6 +36,10 @@ export class RegisterComponent {
 
   ngOnInit() {
     this.valid = true;
+   
+
+      localStorage.clear();
+    
   }
 
 

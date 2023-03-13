@@ -7,6 +7,10 @@ import { ToastrService } from 'ngx-toastr';
   providedIn: 'root'
 })
 export class AuthserviceService {
+
+  
+
+
   updateStatus(data: { status: number; id: any; }) {
     throw new Error('Method not implemented.');
   }
@@ -15,16 +19,29 @@ export class AuthserviceService {
 
     return this.http.get(this.base_url() + "loanDataById/" + id);
   }
-
-
   toaster: any;
   login(item: any) {
     // throw new Error('Method not implemented.');
   }
 
-
-
   constructor(private http: HttpClient) { }
+
+  IsLoggedIn(){
+    console.log("hello");
+
+    return !!localStorage.getItem('token');
+
+  
+  }
+
+  getId(){
+    let session = localStorage.getItem('session') as string;
+    let role = JSON.parse(session).role;
+    return role;
+  }
+
+
+
   base_url = () => {
 
     return ("http://localhost/bhupendra/ApiController2/");
@@ -59,15 +76,6 @@ export class AuthserviceService {
 
   }
 
-  //  userDelete = (sno: string) => {
-
-
-  //     if (window.confirm('Do you really want to Delete')) {
-  //       return this.http.delete<boolean>(this.base_url()+`delete/${sno}`);
-  //     }
-  //     this.toaster.error('Deletion cancelled');
-  //     return;
-  //   }
 
   userDel = (id: any) => {
     return this.http.delete(`${this.base_url()}delete/${id}`)
@@ -114,4 +122,10 @@ export class AuthserviceService {
       'X-Api-Key' : 'lRR/wYeEcJW9g9BNYUn9cg==2Ay8EH4oh1iHfu7E'
     }})
   }
+
+  updateTotalEmi = (data: object) => {
+    return this.http.post(this.base_url + 'payEmi', data);
+  }
+
+
 }

@@ -14,6 +14,10 @@ export class LoginComponent {
 
   constructor(private toastr: ToastrService, private authService: AuthserviceService, private router: Router) { }
 
+ngOnInit(){
+
+  localStorage.clear();
+}
 
   login = new FormGroup({
 

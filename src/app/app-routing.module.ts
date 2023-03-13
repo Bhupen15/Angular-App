@@ -7,6 +7,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user/user.component';
 import { AdminComponent } from './admin/admin.component';
 import { ApplyComponent } from './apply/apply.component';
+import { AuthguardGuard } from './authguard.guard';
+import { RoleguardGuard } from './roleguard.guard';
 
 const routes: Routes = [
   {
@@ -23,15 +25,22 @@ const routes: Routes = [
   },
   {
     component:UserComponent,
-    path:"user"
+    path:"user",
+    data:{role:'0'},
+    canActivate:[AuthguardGuard] 
+    // canActivate:[RoleguardGuard]
   },
   {
     component:AdminComponent,
-    path:"admin"
+    path:"admin",
+    data:{role:'1'},
+    canActivate:[AuthguardGuard]
   },
   {
     component:ApplyComponent,
-    path:"apply"
+    path:"apply",
+    data:{role:'0'},
+    canActivate:[AuthguardGuard]
   }
 
 ];

@@ -38,8 +38,8 @@
     <ng-template #loanapply>
         <a class='btn btn-primary' routerLink="/apply">Apply Loan</a>
     </ng-template>
-    
-        <button class='btn btn-primary m-2 p-2' (click)="visible=true" >Pay EMI</button>
+
+    <button *ngIf="loanValues.status === '1'" class='btn btn-primary m-2 p-2' (click)="visible=true">Pay EMI</button>
 
 
     <!-- Modal -->
@@ -119,35 +119,32 @@
                 <th scope="col">Annual EMI</th>
                 <th scope="col"> Status</th>
                 <th scope="col"> Action</th>
-                
-    
+
+
             </tr>
         </thead>
         <tbody>
-            <tr >
+            <tr>
                 <th scope="row">
                     {{1}}
                 </th>
                 <td>{{loanValues?.fname}}{{" "}}{{loanValues?.lname}}</td>
                 <td>{{loanValues?.email}}</td>
-                <td>{{date}}</td>
+                <td>{{date | date : "d/MM/YYYY"}}</td>
                 <td>{{emiResponse?.monthly_payment.total}}</td>
                 <td>{{emiResponse?.annual_payment.total}}</td>
                 <td>unpaid</td>
-                
+
                 <td >
-                    <button type="button" class="btn btn-info">
-    
-                        Pay Now
+                    <button  type="button" class="btn btn-info">
+
+                        Pay Now 
                     </button>
                 </td>
-                
-    
+
+
             </tr>
-    
+
         </tbody>
     </table>
 </div>
-
-
-

@@ -28,7 +28,7 @@ export class HeaderComponent {
 
 logout(){
 
-localStorage.removeItem("session");
+localStorage.clear();
 this.router.navigateByUrl('/login');
 this.toastr.success('Logged out successfully');
 

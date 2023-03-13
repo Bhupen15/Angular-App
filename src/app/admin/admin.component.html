@@ -398,9 +398,9 @@
                             rejected the Loan</td>
                         <td class="col-md-5 mx-4" style="color:rgb(180, 180, 14)" *ngIf="loanValues?.status === null">
                             Status : Pending</td>
-                        <td class="col-md-5 mx-4" *ngIf="data?.status === null">
-                            <Button class=" btn btn-success mx-3" (click)="updateremark()">Approve</Button>
-                            <Button class=" btn btn-danger" (click)="updateremark()">Reject</Button>
+                        <td class="col-md-5 mx-4" *ngIf="loanValues?.status === null">
+                            <Button class=" btn btn-success mx-3" (click)="editStatus(1)">Approve</Button>
+                            <Button class=" btn btn-danger" (click)="editStatus(0)">Reject</Button>
                         </td>
                     </tr>
                 </table>
